@@ -1,12 +1,29 @@
-var reasons = ["lekkala ramu","nettem revathi chowdary","harshitha lekkala","khavish lekkala","venkatlakshmi","seetharamulu"];
-var images = ["https://thumbs.dreamstime.com/z/illustration-cartoon-father-carrying-son-his-arms-cartoon-father-carrying-son-his-arms-145730921.jpg",
-"https://image.shutterstock.com/image-vector/mother-kids-260nw-519721258.jpg",
-"https://i.pinimg.com/736x/c6/19/f9/c619f9b74735d1f3b87a826a88f7b0cc.jpg",
-"https://st.depositphotos.com/1077687/1903/v/950/depositphotos_19036597-stock-illustration-cartoon-boy.jpg",
-"https://image.shutterstock.com/image-vector/vector-cartoon-grandmother-reading-astrophysics-260nw-1047163900.jpg",
-"https://image.shutterstock.com/image-vector/vector-illustration-grandfather-old-man-260nw-1116857819.jpg"];
-var i = 0;
-function nextslide(){
-document.getElementById("album").src = images[i];
-document.getElementById("reasons").innerHTML = reasons[i];
-i++;}
+
+canvas=document.getElementById("mycanvas");
+
+ctx=canvas.getContext("2d");
+
+var color="purple";
+
+ctx.beginPath();
+ctx.strokeStyle=color;
+ctx.lineWidth=2;
+ctx.arc(200,200,40,0,2*Math.PI);
+ctx.stroke();
+
+canvas.addEventListener("mousedown",my_mousedown);
+
+function my_mousedown(e){
+    mouse_x=e.clientX-canvas.offsetLeft;
+    mouse_y=e.clientY-canvas.offsetTop;
+
+    circle(mouse_x,mouse_y);
+}
+
+function circle(mouse_x,mouse_y){
+    ctx.beginPath();
+    ctx.strokeStyle=color;
+    ctx.lineWidth=2;
+    ctx.arc(mouse_x,mouse_y,40,0,2*Math.PI);
+    ctx.stroke();
+}
